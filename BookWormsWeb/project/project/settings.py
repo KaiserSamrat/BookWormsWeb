@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-
+STATIC_ROOT= os.path.join(BASE_DIR,'staticfiles')
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATES_DIR= os.path.join(BASE_DIR,'templates')
@@ -25,9 +25,9 @@ MEDIA_DIR=os.path.join(BASE_DIR,'media')
 SECRET_KEY = '1zrvt8kfj2c6h7@*)m84vjtm0jdh9l*=#+zc5!=ne-@-cqgz7r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['bookworms-1.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -57,6 +57,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
